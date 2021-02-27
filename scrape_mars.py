@@ -12,7 +12,7 @@ def init_browser():
 
     
 
-def scrape_info():
+def scrape():
     browser = init_browser()
     
     mars_info = {}
