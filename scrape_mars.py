@@ -3,11 +3,11 @@ from bs4 import BeautifulSoup as bs
 import time
 import requests 
 import pandas as pd 
-
+from webdriver_manager.chrome import ChromeDriverManager
 
 def init_browser():
     # @NOTE: Replace the path with your actual path to the chromedriver
-    executable_path = {"executable_path": "/usr/local/bin/chromedriver"}
+    executable_path = {"executable_path": "chromedriver.exe"}
     return Browser("chrome", **executable_path, headless=False)
 
     
