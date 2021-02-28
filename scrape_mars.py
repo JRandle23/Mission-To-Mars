@@ -13,6 +13,7 @@ def init_browser():
     
 
 def scrape():
+    
     browser = init_browser()
     
     mars_info = {}
@@ -33,8 +34,8 @@ def scrape():
     news_title = first_story.find('div', class_='content_title').text
     news_p = first_story.find('div', class_='article_teaser_body').text
 
-    mars_info["News Title"] = news_title
-    mars_info["News Paragraph"] = news_p
+    mars_info["news_title"] = news_title
+    mars_info["news_p"] = news_p
 
 ## JPL Mars Images - Featured Image
 
@@ -51,7 +52,7 @@ def scrape():
     img_url = browser.find_by_css('img.fancybox-image')['src']
     featured_image_url = base_url + img_url
     
-    mars_info["Featured Image"] = featured_image_url
+    mars_info["featured_image"] = featured_image_url
 
 ## Mars Facts
 
@@ -67,7 +68,7 @@ def scrape():
     # Convert table into html string
     mars_facts_table_string = mars_facts.to_html(index=False, header=False)
 
-    mars_info["Table Facts HTML"] = mars_facts_table_string
+    mars_info["table_html"] = mars_facts_table_string
 
 
 ## Mars Hemispheres 
@@ -109,7 +110,7 @@ def scrape():
     # Append the retreived information into a list of dictionaries 
         hemisphere_image_urls.append({"title" : title, "img_url" : img_url})
 
-        mars_info["Hemisphere Image URLS"] = hemisphere_image_urls
+        mars_info["hemisphere_image_urls"] = hemisphere_image_urls
     
     browser.quit()
     
