@@ -16,7 +16,7 @@ def index():
     mars_db = mongo.db.mars_db.find_one()
     
     # Return template and data
-    return render_template("index.html", mars_db=mars_db)
+    return render_template("index.html", mars_info=mars_db)
 
 
 @app.route("/scrape")

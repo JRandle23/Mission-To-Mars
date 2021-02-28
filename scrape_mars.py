@@ -48,11 +48,10 @@ def scrape():
 
     # Navigate webpage to find image URL
     img = browser.click_link_by_partial_text("FULL IMAGE")
-    base_url = 'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space'
-    img_url = browser.find_by_css('img.fancybox-image')['src']
-    featured_image_url = base_url + img_url
+    img_url = browser.find_by_css('img.headerimage.fade-in')['src']
+    featured_image_url = img_url
     
-    mars_info["featured_image"] = featured_image_url
+    mars_info["featured_image_url"] = featured_image_url
 
 ## Mars Facts
 
